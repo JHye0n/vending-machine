@@ -21,6 +21,7 @@ public:
     void SetMoney();
     void addMoney(int diff);
     void invMoney(int diff);
+    void ResetMoney();
     int money = {0};
 
 private slots:

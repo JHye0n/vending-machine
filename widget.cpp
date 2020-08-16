@@ -20,12 +20,20 @@ void Widget::addMoney(int diff)
 {
     money += diff;
     ui->lcdNumber->display(money);
+    SetMoney();
 }
 
 void Widget::invMoney(int diff)
 {
     money -= diff;
     ui->lcdNumber->display(money);
+    SetMoney();
+}
+
+void Widget::ResetMoney(){
+    money = {0};
+    ui->lcdNumber->display(money);
+    SetMoney();
 }
 
 void Widget::SetMoney()
@@ -94,7 +102,6 @@ void Widget::on_pbReset_clicked()
         m.warning(nullptr, "no~~~","no money!!!");
     }else{
         m.information(nullptr,"good bye", QString("%1").arg(money)); // result money
-        money = {0};
-        ui->lcdNumber->display(money);
+        ResetMoney();
     }
 }
