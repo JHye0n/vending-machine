@@ -18,11 +18,10 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
-    int money {0};
-    void changeMoney(int diff){
-        money += diff;
-    }
-    void on_pbCoffee();
+    void SetMoney();
+    void addMoney(int diff);
+    void invMoney(int diff);
+    int money = {0};
 
 private slots:
     void on_pb10_clicked();
@@ -41,10 +40,7 @@ private slots:
 
     void on_pbReset_clicked();
 
-    int CheckMoney();
-
 private:
     Ui::Widget *ui;
-    QTimer* timer;
 };
 #endif // WIDGET_H
